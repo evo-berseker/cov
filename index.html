@@ -104,5 +104,39 @@ window.__mirage2 = {petok:"9d838be0407e93713afb6cdd74b13507f732f35b-1634500013-3
    a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/sdk_mobile.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
 })(document, "script", "gamemonetize-mobile-api"); 
 </script>
+<button id="openInBlank">Open in about:blank</button>
+<script>
+document.getElementById('openInBlank').onclick = function() {
+  const html = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <title>Clash of Vikings</title>
+        <link rel="shortcut icon" href="icon.png">
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no, minimal-ui"/>	
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" type="text/css" href="game.css">	
+        <script type="text/javascript" src="game.js"></script>
+        <!-- Insert rest of your <script> here if needed -->
+      </head>
+      <body onLoad="setTimeout(function(){window.scrollTo(0,1)},1);">
+        <div class="gamecenter-activator"></div>
+        <div id="ajaxbar">
+          <div id="game"><canvas id="canvas"></canvas></div>
+          <div id="orientate"></div>
+          <div id="play" class="play"></div>	
+        </div>
+      </body>
+    </html>
+  `;
+  const win = window.open('about:blank', '_blank');
+  win.document.open();
+  win.document.write(html);
+  win.document.close();
+};
+</script>
 </body>
 </html>
